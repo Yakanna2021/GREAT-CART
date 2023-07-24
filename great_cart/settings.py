@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'category',
     'account',
     'store',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -51,9 +52,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'great_cart.urls'
+
+#JAZZMIN_SETTINGS["show_ui_builder"] = True
 
 TEMPLATES = [
     {
@@ -67,6 +71,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'category.context_processors.menu_links',
+                'cart.context_processor.counter',
+                
             ],
         },
     },
@@ -87,8 +93,18 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
+'''
+DATABASES = {
+	'default': {
+		'ENGINE': 'django.db.backends.mysql',
+		'NAME': 'greatekart',
+		'USER': 'root',
+		'PASSWORD': 'tiger@123',
+		'HOST':'localhost',
+		'PORT':'3306',
+	}
+}
+'''
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -138,3 +154,69 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+'''JAZZMIN_UI_TWEAKS = {
+
+    "theme": "flatly",
+    "dark_mode_theme": "darkly",
+}
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Club",
+    "site_header": "Club",
+    "site_brand": "Club",
+    "welcome_sign": "Welcome to Club",
+    "copyright": "Hihi",
+    "hide_models": ["auth.group"],
+    "show_ui_builder": True,
+    "site_logo": "/images/logo.png",
+    "order_with_respect_to": ["channel"],
+    "icons": {
+        ".channel": "fas fa-comments",
+        ".groups": "fas fa-users",
+        ".message": "fas fa-comment-dots",
+        ".botcommand": "fas fa-terminal",
+        ".quiz": "fas fa-poll-h",
+        "auth.user": "fas fa-user-circle",
+},
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": True,
+    "footer_small_text": True,
+    "body_small_text": True,
+    "brand_small_text": True,
+    "brand_colour": "navbar-dark",
+    "accent": "accent-primary",
+    "navbar": "navbar-gray-dark navbar-dark",
+    "no_navbar_border": True,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": True,
+    "sidebar": "sidebar-dark-info",
+    "sidebar_nav_small_text": True,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": True,
+    "sidebar_nav_flat_style": True,
+    "theme": "minty",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    },
+    "actions_sticky_top": True,
+    "custom_links": {
+        "ChannelsAdmin": [{
+            "name": "Channel",
+            "icon": "fas fa-phone",
+
+    }]
+},
+}'''

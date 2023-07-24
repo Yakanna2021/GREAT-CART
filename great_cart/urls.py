@@ -17,13 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings 
 from django.conf.urls.static import static 
-from .views import homeview
+from .views import home
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',homeview,name='home'),
+    path('',home,name='home'),
     path('store/', include('store.urls')),
+    path('cart/', include('cart.urls')),
     #path('', include('great.urls')),
     #path('category/', include('category.urls')),
 
